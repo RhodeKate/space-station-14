@@ -160,15 +160,7 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
             if (HasComp(args.Body, accent))
                 RemCompDeferred(args.Body, accent);
     }
-
-    private void OnStepEmoteEffectComplete(Entity<SurgeryStepEmoteEffectComponent> ent, ref SurgeryStepEvent args)
-    {
-        if (HasComp<SleepingComponent>(args.Body)){
-            _sleeping.TryWaking(args.Body); // If the patient sleeping without n2o or reagents, wake them up.
-            return;
-        }
-    }
-
+    
     private void OnStepEmoteEffectComplete(Entity<SurgeryStepEmoteEffectComponent> ent, ref SurgeryStepEvent args)
     {
         if (HasComp<SleepingComponent>(args.Body)){
